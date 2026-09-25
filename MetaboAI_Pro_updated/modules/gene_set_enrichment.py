@@ -832,7 +832,7 @@ def _enrichment_dotplot(result_df: pd.DataFrame, term_col: str, x_col: str, size
     # dot's own diameter (converted from points to inches) plus a small fixed pad.
     max_area_pts2 = max(_s(c) for c in reps)
     dot_diam_in = 2.0 * math.sqrt(max_area_pts2 / math.pi) / 72.0
-    dot_step_in = dot_diam_in + 0.045
+    dot_step_in = dot_diam_in + 0.035
     dot_step = rows(dot_step_in)
 
     size_title_lines = size_legend_label if len(size_legend_label) <= 15 else \
@@ -845,7 +845,7 @@ def _enrichment_dotplot(result_df: pd.DataFrame, term_col: str, x_col: str, size
     block_in = size_title_h + dots_h + rule_h + color_title_h + cbar_in
     y_cursor = min(1.0 - rows(0.06), 0.5 + rows(block_in) / 2.0)
 
-    ax_leg.text(0.02, y_cursor, size_title_lines, fontsize=7, fontweight="bold", va="top", ha="left",
+    ax_leg.text(0.02, y_cursor, size_title_lines, fontsize=6, fontweight="bold", va="top", ha="left",
                linespacing=1.15)
     y_cursor -= rows(size_title_h)
     for c in reps:
@@ -860,7 +860,7 @@ def _enrichment_dotplot(result_df: pd.DataFrame, term_col: str, x_col: str, size
     y_cursor -= rows(0.13)
 
     color_title = color_legend_label or color_col
-    ax_leg.text(0.02, y_cursor, color_title, fontsize=7, fontweight="bold", va="top", ha="left")
+    ax_leg.text(0.02, y_cursor, color_title, fontsize=6, fontweight="bold", va="top", ha="left")
     y_cursor -= rows(0.13)
     cbar_h = rows(cbar_in)
     cax = ax_leg.inset_axes([0.06, max(y_cursor - cbar_h, 0.0), 0.16, cbar_h])
