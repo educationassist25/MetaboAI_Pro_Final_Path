@@ -832,7 +832,7 @@ def _enrichment_dotplot(result_df: pd.DataFrame, term_col: str, x_col: str, size
     # dot's own diameter (converted from points to inches) plus a small fixed pad.
     max_area_pts2 = max(_s(c) for c in reps)
     dot_diam_in = 2.0 * math.sqrt(max_area_pts2 / math.pi) / 72.0
-    dot_step_in = dot_diam_in + 0.035
+    dot_step_in = dot_diam_in + 0.050
     dot_step = rows(dot_step_in)
 
     size_title_lines = size_legend_label if len(size_legend_label) <= 15 else \
